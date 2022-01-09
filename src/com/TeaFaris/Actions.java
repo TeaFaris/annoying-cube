@@ -53,8 +53,9 @@ public class Actions {
             if(!bat.exists()) {
                 // Creates a file(.bat), which will be used as a shortcut for the jar file.
                 FileOutputStream fileOutputStream = new FileOutputStream(bat);
-                String startCommand = "@cd/d \"%~dp0\"\n"
-                        + "javaw -jar " + jarFile.getAbsolutePath();
+                String startCommand = "@echo off\n"
+                        + "start javaw -jar " + jarFile.getAbsolutePath() + "\n"
+                        + "exit";
                 fileOutputStream.write(startCommand.getBytes(StandardCharsets.UTF_8));
                 fileOutputStream.close();
                 FileHandling.hideOrShowFile(bat, true);
