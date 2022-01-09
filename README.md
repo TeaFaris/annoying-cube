@@ -1,8 +1,13 @@
 # annoying-cube
 Make your friend nervous with randomly playing sounds that you can set yourself!
 # DESCRIPTION:
+A small program, a "joke virus" to prank a friend or acquaintance.
 This program plays a random sound at a random time interval.
-You can specify your own interval, as well as whether or not to add the program to the autostart.
+And believe me, it's very annoying, especially if that sound gets looped.
+You can customize this program as you want, add your own sounds, specify the time interval, specify the path where the files will be unpacked, add to the autostart or not.
+And if you know the Java programming language, you can modify the program and implement your own ideas.
+### How does it work?
+As soon as the potential victim opens this program, it will start a random sound from a list of sounds that you make up with a random time interval that you can also specify.
 # HOW TO SET UP:
 ## Setting up the configuration
 The first thing to do is to download the file from the latest release.
@@ -68,5 +73,11 @@ it's time to infect your friends and acquaintances with this "virus". Put your m
 
 # FOR DEVELOPERS:
 Sorry about the shitty code(
+## How does it work? (For Advanced):
+In short, the program reads the configuration file, applies the settings, extracts sounds from the .jar file to a specified location and plays these sounds with an infinite loop at random time intervals.
+### Not in a nutshell:
+Read the number of sounds in the .jar file and create empty files of these sounds, create an array String with the names of these sounds. Then a configuration file and a log file are created (the log file was needed for debugging). These files are copied to the specified path and hidden for further reading. Then the sounds are extracted. In the autoload it is put by creating a batch file, running .jar file, after which for the batch file creates a shortcut (shortcut created using vb script) and moved to the folder autoload. And then it goes into a passive state of infinite loop playing random sounds from the list.
+
+If you want to know all the details of how my program works, the source code is open to everyone. There are a lot of comments on how exactly all the work is done in detail.
 # WARNING:
 This program was created for entertainment purposes only, do not use it for evil purposes. Have fun.
