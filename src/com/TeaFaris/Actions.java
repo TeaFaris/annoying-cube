@@ -9,7 +9,7 @@ import static com.TeaFaris.Start.PATH_TO_VIRUS;
 
 public class Actions {
     // A loop that plays a random sound at a random time between the numbers specified in the configuration file
-    public void streamRandomSound(File inputConfig, String pathOut, String[] soundNames, boolean start) throws Exception {
+    public void streamRandomSound(File inputConfig, String pathOut, String[] soundNames, boolean start) throws Exception  {
         Random rand = new Random();
         ConfigurationWork configurationWork = new ConfigurationWork();
         FileHandling fileHandling = new FileHandling();
@@ -18,24 +18,15 @@ public class Actions {
         int highestNumber = Integer.parseInt(soundFrequency[1]);
             while (start) {
                 int randomTime = rand.nextInt(highestNumber - lowestNumber) + lowestNumber;
-                switch (configurationWork.getConfigProperty(inputConfig, "timeUnit")) {
-                    case "MINUTES" -> {
-                        TimeUnit.MINUTES.sleep(randomTime);
-                        break;
-                    }
-                    case "SECONDS" -> {
-                        TimeUnit.SECONDS.sleep(randomTime);
-                        break;
-                    }
-                    case "HOURS" -> {
-                        TimeUnit.HOURS.sleep(randomTime);
-                        break;
-                    }
-                    default -> {
-                        System.err.println("Invalid time unit.");
-                        System.err.println("USE: SECONDS, MINUTES or HOURS");
-                        start = false;
-                    }
+                String a = configurationWork.getConfigProperty(inputConfig, "timeUnit");
+                if(a.equals("MINUTES")) {
+                    TimeUnit.MINUTES.sleep(randomTime);
+                }
+                if(a.equals("SECONDS")) {
+                    TimeUnit.SECONDS.sleep(randomTime);
+                }
+                if(a.equals("HOURS")) {
+                    TimeUnit.HOURS.sleep(randomTime);
                 }
                 int randomSound = rand.nextInt(fileHandling.getNumberOfSounds());
                 File streamingSound = new File(pathOut + soundNames[randomSound]);
