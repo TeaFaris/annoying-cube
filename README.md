@@ -73,6 +73,7 @@ it's time to infect your friends and acquaintances with this "virus". Put your m
 
 # FOR DEVELOPERS:
 Sorry about the shitty code(
+I'm just now looking at this 6 months later and feeling ashamed of this code. Well, at least some experience, now the picture of my code cannot be called the "cleanest code", but I think now I'm doing a lot better. All comes with experience.
 ## How does it work? (For Advanced):
 In short, the program reads the configuration file, applies the settings, extracts sounds from the .jar file to a specified location and plays these sounds with an infinite loop at random time intervals.
 ### Not in a nutshell:
